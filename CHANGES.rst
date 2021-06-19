@@ -7,6 +7,7 @@ in progress
 ===========
 
 - [cloudflare_zone] Improve logging
+- [cloudflare_zone] Document how to invoke the plugin interactively
 
 
 2021-06-19 0.1.0
