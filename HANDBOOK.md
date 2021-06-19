@@ -102,20 +102,9 @@ def publish_public_ip_address(srv=None):
 
 `mqttwarn` has an option to invoke notification handler plugins interactively.
 
-Currently, this still needs a minimal configuration file like `standalone.ini`:
-```ini
-[defaults]
-logfile   = 'stream://sys.stderr'
-loglevel  = DEBUG
-
-[config:mqttwarn_contrib.services.cloudflare_zone]
-auth-email  = '<your cloudflare@email.address>'
-auth-key    = '<your cloudflare api key>'
-```
-
 ```shell
 mqttwarn \
-    --config=standalone.ini \
     --plugin=mqttwarn_contrib.services.cloudflare_zone \
-    --data='{"addrs": ["0815", "www.example.org", ""], "message": "192.168.0.1"}'
+    --config='{"auth-email": "foo", "auth-key": "bar"}' \
+    --options='{"addrs": ["0815", "www.example.org", ""], "message": "192.168.0.1"}'
 ```
