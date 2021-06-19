@@ -6,6 +6,10 @@ mqttwarn-contrib changelog
 in progress
 ===========
 
+
+2021-06-19 0.2.0
+================
+
 - [cloudflare_zone] Improve logging
 - [cloudflare_zone] Document how to invoke the plugin interactively
 
