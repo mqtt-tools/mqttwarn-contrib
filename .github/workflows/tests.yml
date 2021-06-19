@@ -47,7 +47,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pip install .[test]
+        pip install .[test] --upgrade
         pytest tests
 
     - name: Generate coverage report

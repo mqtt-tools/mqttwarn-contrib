@@ -16,7 +16,7 @@ extras = {}
 
 # Packages needed for running the tests.
 extras["test"] = [
-    'mqttwarn[test]',
+    'mqttwarn[test]>=0.26.0',
 ]
 
 

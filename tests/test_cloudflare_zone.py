@@ -3,7 +3,7 @@ import logging
 import responses
 
 from mqttwarn.util import load_module_from_file
-from tests.util import ProcessorItem as Item
+from mqttwarn.model import ProcessorItem as Item
 
 
 def add_successful_mock_response():
