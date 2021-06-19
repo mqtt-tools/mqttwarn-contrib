@@ -73,4 +73,4 @@ def test_cloudflare_zone_success(srv, caplog):
 
         # Verify log messages.
         assert outcome is True
-        assert "IP Address needs update for record: www.example.org from: 192.168.0.1 to: 192.168.0.2" in caplog.text
+        assert "IP address needs update for record: www.example.org from: 192.168.0.1 to: 192.168.0.2" in caplog.text

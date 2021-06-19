@@ -46,7 +46,7 @@ def plugin(srv, item):
             'X-Auth-Email': email
         })
     
-    srv.logging.info(json.dumps(resp.json(), indent=4, sort_keys=True))
+    srv.logging.debug("Response is:\n{}".format(json.dumps(resp.json(), indent=4, sort_keys=True)))
 
     jsondata = resp.json
     try:
@@ -55,7 +55,9 @@ def plugin(srv, item):
         jsondata = resp.json()
     
     if jsondata['success'] != True:
-        raise Exception(json['msg'])
+        srv.logging.error("Updating DNS record for zone id {} failed: {}".format(zone, json.dumps(jsondata, indent=4)))
+        message = jsondata['errors'][0]['message']
+        raise Exception(message)
     if type(jsondata['result']) is list:
         for record in jsondata['result']:
             update_record(srv,email,api_key,zone,ip,record)
@@ -69,7 +71,7 @@ def update_record(srv,email, api_key,zone,ip,record):
     if record['type'] == 'A' and record['content'] == ip:
             srv.logging.info("No IP address update needed for record: " + record['name'] + " Address: " + ip)
     elif record['type'] == 'A':
-        srv.logging.info("IP Address needs update for record: " + record['name'] + " from: " + record['content'] + " to: " + ip )
+        srv.logging.info("IP address needs update for record: " + record['name'] + " from: " + record['content'] + " to: " + ip )
         resp = requests.put(
             'https://api.cloudflare.com/client/v4/zones/{}/dns_records/{}'.format(
                 zone, record['id']),
