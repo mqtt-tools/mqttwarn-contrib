@@ -1,0 +1,4 @@
+include setup.cfg *.txt *.rst *.md
+exclude .bumpversion.cfg
+recursive-include mqttwarn_contrib *.ini *.py
+prune tests

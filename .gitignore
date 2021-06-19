@@ -1,0 +1,14 @@
+.DS_Store
+/.idea
+/.venv*
+/dist*
+/build
+*.pyc
+__pycache__
+*.egg-info
+*.sln
+*.suo
+*.pyproj
+.pytest_cache
+.pytest_results
+.coverage
